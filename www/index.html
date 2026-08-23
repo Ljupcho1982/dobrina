@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#fdf6ec" />
+<title>Добрина</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icon.svg" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ══════════ ОНБОРДИНГ ══════════ -->
+<section id="onboarding" class="screen hidden">
+  <div class="ob-wrap">
+    <div class="ob-progress"><div id="obBar"></div></div>
+
+    <div class="ob-step" data-step="0">
+      <div class="logo-mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M10 14h44a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4H28L16 55v-11h-6a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="var(--accent)"/>
+          <path d="M32 36s-9-5.4-9-11.2A5 5 0 0 1 32 21a5 5 0 0 1 9 3.8C41 30.6 32 36 32 36Z" fill="var(--honey)"/>
+        </svg>
+      </div>
+      <h1>Добрина</h1>
+      <p class="tagline">Не чекај погреб за да кажеш нешто убаво.</p>
+      <p class="ob-text">Луѓето ги паметиме по добрите работи. Проблемот е што тие добри работи најчесто се кажуваат прекасно — на погреб, пред луѓе што ги слушаат наместо оној на кого му се однесуваат.</p>
+      <p class="ob-text">Оваа апликација прави една единствена работа: <b>еднаш неделно те прашува за една добра работа за еден човек — и ти помага да му ја испратиш денес.</b></p>
+      <button class="btn primary big ob-next">Почни</button>
+    </div>
+
+    <div class="ob-step hidden" data-step="1">
+      <span class="kicker">Прво име</span>
+      <h2>За кого прво?</h2>
+      <p class="ob-text">Најдобро почни со оној што најмалку го очекува. Дедо, баба, тетка, стар пријател, наставник.</p>
+      <label class="label" for="obName">Име</label>
+      <input id="obName" type="text" placeholder="на пр. Дедо Ристо" autocomplete="off" />
+      <label class="label" for="obRel">Кој ти е</label>
+      <select id="obRel"></select>
+      <button class="btn primary big ob-next">Понатаму</button>
+    </div>
+
+    <div class="ob-step hidden" data-step="2">
+      <span class="kicker">Ритамот</span>
+      <h2>Еднаш неделно</h2>
+      <p class="ob-text">Едно прашање. Триесет секунди глас. Толку. Не е дневник и не е обврска — ако прескокнеш недела, ништо не се губи.</p>
+      <p class="label">Кој ден ти одговара?</p>
+      <div id="obDays" class="chips"></div>
+      <p class="fineprint">Сè останува на овој телефон. Нема сметка, нема сервер, никој друг не гледа.</p>
+      <button class="btn primary big" id="obDone">Готово</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ГЛАВЕН ЕКРАН ══════════ -->
+<main id="app" class="hidden">
+
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" class="brand-ico" aria-hidden="true">
+        <path d="M10 14h44a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4H28L16 55v-11h-6a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="var(--accent)"/>
+        <path d="M32 36s-9-5.4-9-11.2A5 5 0 0 1 32 21a5 5 0 0 1 9 3.8C41 30.6 32 36 32 36Z" fill="var(--honey)"/>
+      </svg>
+      <span>Добрина</span>
+    </div>
+    <button class="icon-btn" id="btnSettings" aria-label="Поставки">⚙</button>
+  </header>
+
+  <!-- ── Дома ── -->
+  <section class="view" id="viewHome">
+    <div id="homeGreet" class="greet"></div>
+
+    <article class="card weekly" id="weeklyCard">
+      <span class="kicker">Прашање на неделата</span>
+      <div class="weekly-person" id="weeklyPerson"></div>
+      <p class="weekly-q" id="weeklyQ"></p>
+      <div class="row2">
+        <button class="btn primary big" id="btnAnswer">Кажи го</button>
+        <button class="btn ghost" id="btnOtherQ">Друго прашање</button>
+      </div>
+    </article>
+
+    <article class="card surprise hidden" id="surpriseCard">
+      <span class="kicker" id="surpriseLead"></span>
+      <div id="surpriseBody"></div>
+    </article>
+
+    <div class="stats" id="homeStats"></div>
+
+    <h3 class="sect">Последни</h3>
+    <div id="homeRecent" class="good-list"></div>
+  </section>
+
+  <!-- ── Луѓе ── -->
+  <section class="view hidden" id="viewPeople">
+    <div class="view-head">
+      <h2>Луѓе</h2>
+      <button class="btn small primary" id="btnAddPerson">+ Додај</button>
+    </div>
+    <div id="peopleList" class="people-list"></div>
+    <div id="upcoming"></div>
+  </section>
+
+  <!-- ── Сè ── -->
+  <section class="view hidden" id="viewAll">
+    <div class="view-head"><h2>Сè</h2></div>
+    <div id="allFilter" class="chips small-chips"></div>
+    <div id="allList" class="good-list"></div>
+  </section>
+
+  <!-- ── Личност ── -->
+  <section class="view hidden" id="viewPerson">
+    <button class="btn ghost back" id="btnBackPerson">‹ Назад</button>
+    <div class="person-head" id="personHead"></div>
+    <div class="row2">
+      <button class="btn primary" id="btnPersonAdd">Кажи нешто добро</button>
+      <button class="btn ghost" id="btnPersonBook">Книга</button>
+    </div>
+    <div id="personWall" class="good-list wall"></div>
+  </section>
+
+  <!-- ── Книга ── -->
+  <section class="view hidden" id="viewBook">
+    <button class="btn ghost back" id="btnBackBook">‹ Назад</button>
+    <div id="bookBody" class="book"></div>
+    <button class="btn primary big" id="btnBookSave">Зачувај ја книгата</button>
+    <p class="fineprint">Се снима една единствена HTML-датотека со сè внатре — слики, глас, текст. Се отвора во кој било прелистувач, и за триесет години, без апликација.</p>
+  </section>
+
+  <!-- ── Поставки ── -->
+  <section class="view hidden" id="viewSettings">
+    <button class="btn ghost back" id="btnBackSettings">‹ Назад</button>
+    <h2>Поставки</h2>
+
+    <div class="card">
+      <p class="label">Ден за прашањето</p>
+      <div id="setDays" class="chips"></div>
+    </div>
+
+    <div class="card">
+      <p class="label">Вечен извоз</p>
+      <p class="ob-text">Целото семејство во една датотека што не бара оваа апликација за да се прочита.</p>
+      <button class="btn primary" id="btnExportAll">Зачувај сè</button>
+      <hr />
+      <p class="label">Резерва и враќање</p>
+      <button class="btn ghost" id="btnBackup">Резерва (.json)</button>
+      <label class="btn ghost file-btn">Врати резерва<input type="file" id="fileRestore" accept="application/json" hidden /></label>
+    </div>
+
+    <div class="card">
+      <p class="label">Простор</p>
+      <p id="storageInfo" class="fineprint"></p>
+    </div>
+
+    <p class="fineprint center">Добрина · сè останува на овој уред</p>
+  </section>
+
+  <nav class="tabbar">
+    <button class="tab on" data-view="Home"><span>🏠</span>Дома</button>
+    <button class="tab" data-view="People"><span>👵</span>Луѓе</button>
+    <button class="tab" data-view="All"><span>💛</span>Сè</button>
+  </nav>
+</main>
+
+<!-- ══════════ СНИМАЧ ══════════ -->
+<div class="sheet hidden" id="recSheet">
+  <div class="sheet-inner">
+    <div class="sheet-head">
+      <button class="icon-btn" id="recClose" aria-label="Затвори">✕</button>
+      <span id="recFor"></span>
+    </div>
+
+    <p class="rec-q" id="recQ"></p>
+    <button class="btn ghost small" id="recSwapQ">Друго прашање</button>
+
+    <div id="recKinds" class="chips small-chips"></div>
+
+    <div class="recorder">
+      <button id="recBtn" class="rec-btn" aria-label="Снимај">
+        <span class="rec-dot"></span>
+      </button>
+      <div class="rec-meta">
+        <span id="recTime">0:00</span>
+        <span id="recHint" class="fineprint">допри за да снимаш глас</span>
+      </div>
+    </div>
+
+    <audio id="recPreview" class="hidden" controls></audio>
+    <button class="btn ghost small hidden" id="recRedo">Сними пак</button>
+
+    <textarea id="recText" rows="3" placeholder="Или напиши го со збор…"></textarea>
+
+    <div class="row2">
+      <label class="btn ghost file-btn">📷 Слика<input type="file" id="recPhoto" accept="image/*" hidden /></label>
+      <button class="btn ghost hidden" id="recPhotoClear">Тргни ја сликата</button>
+    </div>
+    <img id="recPhotoPrev" class="photo-prev hidden" alt="" />
+
+    <p class="label">Кога беше тоа?</p>
+    <div id="recSeasons" class="chips small-chips"></div>
+
+    <button class="btn primary big" id="recSave">Зачувај</button>
+  </div>
+</div>
+
+<!-- ══════════ ИСПРАЌАЊЕ ══════════ -->
+<div class="sheet hidden" id="sendSheet">
+  <div class="sheet-inner center">
+    <div class="big-emoji">💛</div>
+    <h2>Зачувано.</h2>
+    <p class="ob-text" id="sendWho"></p>
+    <button class="btn primary big" id="btnSendNow">Испрати сега</button>
+    <button class="btn ghost" id="btnSendLater">Подоцна</button>
+    <p class="fineprint">Се отвора Viber, WhatsApp или што и да користиш. Тој од другата страна не мора ништо да инсталира.</p>
+  </div>
+</div>
+
+<!-- ══════════ ЛИЧНОСТ: УРЕДУВАЊЕ ══════════ -->
+<div class="sheet hidden" id="personSheet">
+  <div class="sheet-inner">
+    <div class="sheet-head">
+      <button class="icon-btn" id="personClose" aria-label="Затвори">✕</button>
+      <span id="personSheetTitle">Нова личност</span>
+    </div>
+
+    <label class="label" for="pName">Име</label>
+    <input id="pName" type="text" placeholder="на пр. Баба Цвета" autocomplete="off" />
+
+    <label class="label" for="pRel">Кој ти е</label>
+    <select id="pRel"></select>
+
+    <label class="btn ghost file-btn">📷 Слика<input type="file" id="pPhoto" accept="image/*" hidden /></label>
+    <img id="pPhotoPrev" class="avatar-prev hidden" alt="" />
+
+    <label class="label" for="pBirth">Роденден (по избор)</label>
+    <input id="pBirth" type="text" inputmode="numeric" placeholder="дд.мм" />
+
+    <label class="label" for="pSlava">Слава (по избор)</label>
+    <select id="pSlava"></select>
+
+    <label class="check"><input type="checkbox" id="pReceive" checked /> <span>Може да прими порака</span></label>
+    <p class="fineprint">Ако е исклучено, наместо „Испрати“ ќе стои „Сподели со семејството“.</p>
+
+    <button class="btn primary big" id="pSave">Зачувај</button>
+    <button class="btn ghost danger hidden" id="pDelete">Избриши ја личноста</button>
+  </div>
+</div>
+
+<div id="toast" class="hidden"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

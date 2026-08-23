@@ -1,0 +1,11 @@
+{
+  "appId": "mk.semov.dobrina",
+  "appName": "Добрина",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#fdf6ec"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

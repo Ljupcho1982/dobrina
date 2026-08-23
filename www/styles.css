@@ -1,0 +1,254 @@
+/* Добрина — топла палета. Никаква црнина, никакви свеќи:
+   бојата е кујна во шест часот попладне. */
+
+:root {
+  --bg:      #fdf6ec;
+  --card:    #fffaf3;
+  --line:    #e8d9c5;
+  --ink:     #3a2c22;
+  --ink-dim: #8a7460;
+  --accent:  #c75b2a;   /* ајвар */
+  --accent-d:#a8481f;
+  --honey:   #d9a441;
+  --leaf:    #6a8f5f;
+  --shadow:  0 2px 10px rgba(90, 60, 30, .07);
+  --r:       16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #1b1512;
+    --card:    #241c17;
+    --line:    #3a2d24;
+    --ink:     #f2e6d8;
+    --ink-dim: #a89684;
+    --accent:  #e0713d;
+    --accent-d:#c75b2a;
+    --honey:   #e6b95c;
+    --leaf:    #8bb07d;
+    --shadow:  0 2px 12px rgba(0, 0, 0, .3);
+  }
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.hidden { display: none !important; }
+.center { text-align: center; }
+
+h1 { font-size: 2rem; margin: .2em 0 .1em; letter-spacing: -.02em; }
+h2 { font-size: 1.35rem; margin: .2em 0 .4em; }
+h3.sect { font-size: .95rem; color: var(--ink-dim); margin: 1.6em 0 .5em; font-weight: 600; }
+
+.kicker {
+  display: inline-block; font-size: .72rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: .4em;
+}
+.tagline { font-size: 1.1rem; color: var(--accent); font-weight: 600; margin: 0 0 1em; }
+.label { font-size: .82rem; color: var(--ink-dim); font-weight: 600; margin: 1em 0 .35em; display: block; }
+.fineprint { font-size: .78rem; color: var(--ink-dim); line-height: 1.5; }
+.ob-text { margin: 0 0 .9em; }
+
+/* ── контроли ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 999px; padding: .62em 1.15em; font: inherit; font-weight: 600;
+  cursor: pointer; transition: transform .08s ease, background .15s ease;
+}
+.btn:active { transform: scale(.97); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:active { background: var(--accent-d); }
+.btn.ghost { background: transparent; }
+.btn.big { width: 100%; padding: .85em 1.2em; font-size: 1.02rem; margin-top: .8em; }
+.btn.small { padding: .4em .9em; font-size: .85rem; }
+.btn.danger { color: #b3402f; border-color: #e3b6ae; }
+.btn.back { padding-left: .6em; margin-bottom: .6em; color: var(--ink-dim); border: none; }
+.file-btn { position: relative; overflow: hidden; }
+
+.icon-btn {
+  border: none; background: transparent; color: var(--ink-dim);
+  font-size: 1.3rem; padding: .2em .4em; cursor: pointer; line-height: 1;
+}
+
+input[type=text], select, textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); border-radius: 12px; padding: .7em .85em;
+}
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--honey); outline-offset: 1px; }
+
+.check { display: flex; align-items: center; gap: .6em; margin: 1em 0 .2em; font-size: .95rem; }
+.check input { width: 1.15em; height: 1.15em; accent-color: var(--accent); }
+
+.row2 { display: flex; gap: .6em; margin-top: .8em; }
+.row2 > * { flex: 1; margin-top: 0; }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 1.2em 0; }
+
+/* ── чипови ── */
+.chips { display: flex; flex-wrap: wrap; gap: .45em; margin: .3em 0 .2em; }
+.chip {
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 999px; padding: .45em .9em; font: inherit; font-size: .88rem;
+  cursor: pointer; transition: all .12s ease;
+}
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.small-chips .chip { font-size: .8rem; padding: .35em .75em; }
+
+/* ── онбординг ── */
+.screen { min-height: 100dvh; }
+.ob-wrap { max-width: 520px; margin: 0 auto; padding: 2.2rem 1.25rem 3rem; }
+.ob-progress { height: 3px; background: var(--line); border-radius: 2px; margin-bottom: 2rem; }
+#obBar { height: 100%; background: var(--accent); border-radius: 2px; width: 33%; transition: width .3s ease; }
+.logo-mark svg { width: 76px; height: 76px; display: block; }
+
+/* ── лента и табови ── */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .7rem 1rem; background: var(--bg); border-bottom: 1px solid var(--line);
+  padding-top: calc(.7rem + env(safe-area-inset-top));
+}
+.brand { display: flex; align-items: center; gap: .5em; font-weight: 700; }
+.brand-ico { width: 26px; height: 26px; }
+
+.view { max-width: 620px; margin: 0 auto; padding: 1rem 1.1rem 6.5rem; }
+.view-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .6em; }
+
+.tabbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 20;
+  display: flex; background: var(--card); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.tab {
+  flex: 1; border: none; background: none; color: var(--ink-dim);
+  font: inherit; font-size: .72rem; font-weight: 600; padding: .5em 0 .6em;
+  display: flex; flex-direction: column; align-items: center; gap: .1em; cursor: pointer;
+}
+.tab span { font-size: 1.25rem; line-height: 1.1; }
+.tab.on { color: var(--accent); }
+
+/* ── картички ── */
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 1.1rem; box-shadow: var(--shadow); margin-bottom: 1rem;
+}
+.greet { font-size: 1.05rem; color: var(--ink-dim); margin: .2em 0 1em; }
+
+.weekly { border-left: 4px solid var(--accent); }
+.weekly-person { font-weight: 700; display: flex; align-items: center; gap: .5em; margin-bottom: .3em; }
+.weekly-q { font-size: 1.12rem; line-height: 1.45; margin: .2em 0 .2em; }
+
+.surprise { border-left: 4px solid var(--honey); background: linear-gradient(180deg, var(--card), var(--bg)); }
+
+.stats { display: flex; gap: .6em; margin: .4em 0 .2em; }
+.stat { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .7em; text-align: center; }
+.stat b { display: block; font-size: 1.5rem; color: var(--accent); line-height: 1.1; }
+.stat span { font-size: .74rem; color: var(--ink-dim); }
+
+/* ── листа добрини ── */
+.good-list { display: flex; flex-direction: column; gap: .7em; }
+.good {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: .9rem 1rem; box-shadow: var(--shadow);
+}
+.good-top { display: flex; align-items: center; gap: .5em; font-size: .8rem; color: var(--ink-dim); margin-bottom: .45em; }
+.good-kind { font-weight: 700; color: var(--ink); }
+.good-q { font-size: .84rem; color: var(--ink-dim); font-style: italic; margin: 0 0 .5em; }
+.good-text { margin: 0 0 .55em; white-space: pre-wrap; }
+.good audio { width: 100%; height: 38px; margin: .3em 0; }
+.good img.gp { width: 100%; border-radius: 10px; margin: .4em 0 .2em; display: block; }
+.good-acts { display: flex; gap: .45em; margin-top: .5em; flex-wrap: wrap; }
+.badge-sent { color: var(--leaf); font-size: .78rem; font-weight: 600; }
+
+.empty { color: var(--ink-dim); text-align: center; padding: 2.2em 1em; font-size: .95rem; }
+
+/* ── луѓе ── */
+.people-list { display: flex; flex-direction: column; gap: .6em; }
+.person-row {
+  display: flex; align-items: center; gap: .8em; cursor: pointer;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+  padding: .75rem .9rem; box-shadow: var(--shadow);
+}
+.av {
+  width: 48px; height: 48px; border-radius: 50%; flex: none; object-fit: cover;
+  background: var(--honey); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.1rem;
+}
+.av.lg { width: 76px; height: 76px; font-size: 1.7rem; }
+.person-row .pr-name { font-weight: 700; }
+.person-row .pr-sub { font-size: .8rem; color: var(--ink-dim); }
+.person-row .pr-n { margin-left: auto; color: var(--accent); font-weight: 700; }
+
+.person-head { display: flex; align-items: center; gap: 1em; margin-bottom: .8em; }
+.person-head .ph-name { font-size: 1.45rem; font-weight: 700; line-height: 1.2; }
+.person-head .ph-sub { font-size: .85rem; color: var(--ink-dim); }
+
+.up-item {
+  display: flex; align-items: center; gap: .6em; padding: .6em .2em;
+  border-bottom: 1px solid var(--line); font-size: .9rem;
+}
+.up-item b { color: var(--accent); }
+
+/* ── книга ── */
+.book { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 1.4rem 1.2rem; box-shadow: var(--shadow); }
+.book h1 { font-size: 1.6rem; margin-bottom: .1em; }
+.book .book-sub { color: var(--ink-dim); font-size: .9rem; margin-bottom: 1.4em; }
+.book-entry { padding: .9em 0; border-top: 1px solid var(--line); }
+.book-entry .be-kind { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.book-entry .be-q { font-style: italic; color: var(--ink-dim); font-size: .86rem; margin: .2em 0 .35em; }
+.book-entry .be-date { font-size: .76rem; color: var(--ink-dim); margin-top: .4em; }
+.book-entry audio { width: 100%; height: 38px; margin: .3em 0; }
+.book-entry img { max-width: 100%; border-radius: 10px; display: block; margin: .4em 0; }
+
+/* ── лист (bottom sheet) ── */
+.sheet {
+  position: fixed; inset: 0; z-index: 40; background: rgba(40, 25, 15, .45);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.sheet-inner {
+  background: var(--bg); width: 100%; max-width: 620px; max-height: 92dvh; overflow-y: auto;
+  border-radius: 22px 22px 0 0; padding: 1.1rem 1.15rem calc(1.6rem + env(safe-area-inset-bottom));
+  animation: rise .22s ease;
+}
+@keyframes rise { from { transform: translateY(14px); opacity: .7 } to { transform: none; opacity: 1 } }
+.sheet-head { display: flex; align-items: center; gap: .6em; margin-bottom: .8em; font-weight: 700; }
+
+.rec-q { font-size: 1.15rem; line-height: 1.45; margin: .3em 0 .5em; }
+.big-emoji { font-size: 3rem; line-height: 1; margin-bottom: .2em; }
+
+/* ── снимач ── */
+.recorder { display: flex; align-items: center; gap: 1em; margin: 1.2em 0 .6em; }
+.rec-btn {
+  width: 74px; height: 74px; border-radius: 50%; flex: none; cursor: pointer;
+  border: 3px solid var(--accent); background: var(--card);
+  display: flex; align-items: center; justify-content: center;
+}
+.rec-dot { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); transition: all .2s ease; }
+.rec-btn.rec { border-color: #b3402f; animation: pulse 1.3s ease-in-out infinite; }
+.rec-btn.rec .rec-dot { border-radius: 6px; width: 24px; height: 24px; background: #b3402f; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(179, 64, 47, .35) }
+  50%      { box-shadow: 0 0 0 14px rgba(179, 64, 47, 0) }
+}
+.rec-meta { display: flex; flex-direction: column; }
+#recTime { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.photo-prev { width: 100%; border-radius: 12px; margin-top: .6em; display: block; }
+.avatar-prev { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; margin-top: .6em; display: block; }
+
+/* ── тост ── */
+#toast {
+  position: fixed; left: 50%; bottom: 5.4rem; transform: translateX(-50%); z-index: 60;
+  background: var(--ink); color: var(--bg); padding: .65em 1.1em; border-radius: 999px;
+  font-size: .9rem; max-width: 88vw; text-align: center; box-shadow: var(--shadow);
+}

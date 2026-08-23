@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fdf6ec">
+<title>Добрина — не чекај погреб за да кажеш нешто убаво</title>
+<meta name="description" content="Еднаш неделно едно прашање за еден човек. Триесет секунди глас — и го испраќаш додека има кому. Бесплатна, офлајн, без сметка, за Android.">
+<meta property="og:title" content="Добрина — не чекај погреб за да кажеш нешто убаво">
+<meta property="og:description" content="Еднаш неделно едно прашање за еден човек. Триесет секунди глас — и го испраќаш додека има кому.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ljupcho1982.github.io/dobrina/">
+<meta property="og:image" content="https://ljupcho1982.github.io/dobrina/shot-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&display=swap">
+<style>
+  :root {
+    --bg: #fdf6ec; --card: #fffaf3; --line: #e8d9c5; --ink: #3a2c22;
+    --dim: #8a7460; --accent: #c75b2a; --accent-d: #a8481f; --honey: #d9a441; --leaf: #6a8f5f;
+    --shadow: 0 2px 10px rgba(90, 60, 30, .07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1512; --card: #241c17; --line: #3a2d24; --ink: #f2e6d8;
+      --dim: #a89684; --accent: #e0713d; --accent-d: #c75b2a; --honey: #e6b95c; --leaf: #8bb07d;
+      --shadow: 0 2px 12px rgba(0, 0, 0, .3);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 17px/1.55 "Segoe UI", system-ui, -apple-system, sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 30px 20px 72px; }
+
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  header img { width: 54px; height: 54px; flex: none; }
+  header h1 { font-family: Literata, Georgia, serif; font-size: 27px; margin: 0; font-weight: 700; letter-spacing: -.02em; }
+  header p { margin: 2px 0 0; color: var(--dim); font-size: 15px; }
+
+  .hero { background: var(--accent); color: #fff; border-radius: 20px; padding: 30px 28px 32px; }
+  .hero h2 { font-family: Literata, Georgia, serif; margin: 0 0 12px; font-size: 33px;
+    line-height: 1.12; font-weight: 700; letter-spacing: -.025em; text-wrap: pretty; }
+  .hero p { margin: 0; font-size: 17px; color: #fde8dc; text-wrap: pretty; }
+
+  .grab { display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 22px 26px 24px; margin-top: 14px; box-shadow: var(--shadow); }
+  .dl { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 24px; border-radius: 999px; }
+  .dl:hover { background: var(--accent-d); }
+  .grab small { display: block; color: var(--dim); font-size: 14px; margin-top: 12px; line-height: 1.5; }
+  .qr { text-align: center; }
+  .qr img { display: block; width: 132px; height: 132px; border: 1px solid var(--line); border-radius: 12px; }
+  .qr span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--dim); margin-top: 7px; }
+
+  section { margin-top: 34px; }
+  h3 { font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 14px; }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .shots figure { margin: 0; }
+  .shots img { width: 100%; border: 1px solid var(--line); border-radius: 14px; display: block; box-shadow: var(--shadow); }
+  .shots figcaption { color: var(--dim); font-size: 13px; margin-top: 7px; text-align: center; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .c { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 17px 19px; box-shadow: var(--shadow); }
+  .c b { display: block; font-size: 16px; margin-bottom: 5px; }
+  .c span { color: var(--dim); font-size: 15px; }
+
+  .kinds { display: flex; flex-wrap: wrap; gap: 8px; }
+  .k { display: flex; align-items: center; gap: 8px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: 8px 15px 8px 12px; font-size: 15px; }
+  .k i { font-style: normal; font-size: 17px; }
+  .k s { text-decoration: none; color: var(--dim); font-size: 13.5px; }
+
+  blockquote { font-family: Literata, Georgia, serif; font-size: 21px; line-height: 1.45;
+    margin: 0; padding: 0 0 0 20px; border-left: 4px solid var(--honey); text-wrap: pretty; }
+
+  ul.plain { list-style: none; padding: 0; margin: 0; background: var(--card);
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  ul.plain li { padding: 14px 19px 14px 46px; position: relative; border-top: 1px solid var(--line); font-size: 15.5px; }
+  ul.plain li:first-child { border-top: 0; }
+  ul.plain li::before { content: "\2022"; position: absolute; left: 20px; font-weight: 700; color: var(--dim); }
+  ul.plain li b { color: var(--ink); }
+
+  .warn { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--honey);
+    border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .warn b { display: block; margin-bottom: 7px; font-size: 16px; }
+  .warn p { margin: 8px 0 0; font-size: 15px; color: var(--dim); text-wrap: pretty; }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--dim); font-size: 14.5px; line-height: 1.6; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-d); }
+
+  @media (max-width: 560px) {
+    .grab { grid-template-columns: 1fr; }
+    .qr { justify-self: start; }
+    .hero h2 { font-size: 26px; }
+    .hero { padding: 24px 20px 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="icon.svg" alt="">
+    <div>
+      <h1>Добрина</h1>
+      <p>Кажи го денес.</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Не чекај погреб за да кажеш нешто убаво.</h2>
+    <p>Луѓето ги паметиме по добрите работи — а тие најчесто се кажуваат прекасно, пред луѓе што ги слушаат наместо оној на кого се однесуваат. Оваа апликација прави една работа: еднаш неделно те прашува за една добра работа за еден човек, и ти помага да му ја испратиш <b>додека има кому</b>.</p>
+  </div>
+
+  <div class="grab">
+    <div>
+      <a class="dl" href="https://github.com/Ljupcho1982/dobrina/releases/latest/download/dobrina.apk">Преземи за Android</a>
+      <small>APK. Android ќе побара дозвола за инсталација од непознат извор — тоа е нормално за апликација што не оди преку Play. Бара пристап до микрофонот, зашто снимањето глас е целата поента.</small>
+    </div>
+    <div class="qr">
+      <img src="qr.png" alt="QR код до оваа страница" width="132" height="132">
+      <span>скенирај</span>
+    </div>
+  </div>
+
+  <section>
+    <h3>Како изгледа</h3>
+    <div class="shots">
+      <figure><img src="shot-onboarding.png" alt="Почетен екран"><figcaption>Првиот пат</figcaption></figure>
+      <figure><img src="shot-home.png" alt="Прашање на неделата"><figcaption>Прашање на неделата</figcaption></figure>
+      <figure><img src="shot-recorder.png" alt="Снимач"><figcaption>Триесет секунди</figcaption></figure>
+      <figure><img src="shot-wall.png" alt="Ѕид на личност"><figcaption>Ѕидот на еден човек</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h3>Шест вида записи</h3>
+    <div class="kinds">
+      <div class="k"><i>💛</i> Добрина <s>што направи за некој</s></div>
+      <div class="k"><i>🪚</i> Научив <s>што премина на тебе</s></div>
+      <div class="k"><i>😄</i> Смеа <s>снимката што ќе ја сакаш</s></div>
+      <div class="k"><i>🍲</i> Рецепт <s>кујна, раце, глас</s></div>
+      <div class="k"><i>🌾</i> Момент <s>слика од едно време</s></div>
+      <div class="k"><i>🙏</i> Фала <s>право до него</s></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Што прави</h3>
+    <div class="cards">
+      <div class="c"><b>Прашање на неделата</b><span>79 прашања, сите со името внатре. Луѓето ротираат по тоа кој најдолго не бил спомнат.</span></div>
+      <div class="c"><b>Снимаш, па испраќаш</b><span>Глас, текст или слика. Потоа се отвора Viber или WhatsApp — оној од другата страна не мора ништо да инсталира.</span></div>
+      <div class="c"><b>Сезони, не датуми</b><span>„лето на село“, „зимница“, „слава“. Луѓето така паметат, а не со бирач на ден.</span></div>
+      <div class="c"><b>Слава и роденден</b><span>18 слави по граѓански календар. Тие денови и онака сите се во иста соба и раскажуваат за домаќинот.</span></div>
+      <div class="c"><b>Изненадување</b><span>Стар запис исплива во обичен вторник — намерно не на годишнина.</span></div>
+      <div class="c"><b>Книга на доброто</b><span>Сè што си кажал за еден човек, како книга што може да се даде.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Вечен извоз</h3>
+    <div class="warn">
+      <b>Телефон што паѓа во вода е најлошото место за нешто што треба да нè надживее.</b>
+      <p>Затоа копчето <b>Зачувај ја книгата</b> снима <b>една единствена HTML-датотека</b> со сè внатре — текст, слики и гласови. Се отвора во кој било прелистувач, без интернет, без оваа апликација, и за триесет години. Има и <code>.json</code> резерва што се враќа назад во апликацијата.</p>
+    </div>
+  </section>
+
+  <section>
+    <h3>Зошто вака</h3>
+    <blockquote>Другите апликации го тераат старецот да пишува домашна задача за семејството да добие книга. Оваа го тера внукот да работи, за дедото да добие подарок. Книгата се создава сама — и кога еден ден ќе стане спомен, секој ред во неа веќе бил кажан в лице.</blockquote>
+  </section>
+
+  <section>
+    <h3>Што не прави, и нема да прави</h3>
+    <ul class="plain">
+      <li><b>Нема и нема да има синтетички глас</b> на човек што го нема. Постојат апликации што го прават тоа. Тука има само вистинскиот глас и вистинските зборови.</li>
+      <li><b>Нема сметка, нема сервер.</b> Сè останува на телефонот. Ништо не излегува од уредот освен кога сам ќе притиснеш „Испрати“.</li>
+      <li><b>Нема потсетници на датуми на смрт.</b> Никаде не стои „починал“. Личноста има само прекинувач „може да прими порака“ — кога е исклучен, „Испрати“ станува „Сподели со семејството“, и ништо друго не се менува.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Искрено за ограничувањата</h3>
+    <ul class="plain">
+      <li><b>Ѕидот не се синхронизира меѓу телефони.</b> Ако сакате повеќемина да пишувате за истиот човек, засега тоа оди преку извоз и увоз на датотека, не преку сервер.</li>
+      <li><b>Неделниот потсетник зависи од Android.</b> Ако системот ја заспие апликацијата заради штедење батерија, може да задоцни или да прескокне. Апликацијата и понатаму работи — само не те тапка по рамо.</li>
+      <li><b>Апликацијата е тестирана во прелистувач, не на вистински телефон.</b> Целата низа — од првиот екран до извозот — е поминета и проверена, но сè уште никој не ја носел во џеб една недела.</li>
+      <li><b>Само на македонски.</b></li>
+      <li><b>APK-от е debug-потпишан</b> и не оди преку Google Play.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Изворниот код е отворен: <a href="https://github.com/Ljupcho1982/dobrina">github.com/Ljupcho1982/dobrina</a> · MIT.<br>
+    Без реклами, без следење, без наплата. Ако ти помогне да кажеш нешто на време — тоа ѝ е целата работа.
+  </footer>
+
+</div>
+</body>
+</html>

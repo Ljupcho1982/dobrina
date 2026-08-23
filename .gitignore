@@ -1,0 +1,13 @@
+node_modules/
+android/
+*.apk
+
+# Машински патеки и Android излез (кога android/ ќе се следи локално)
+android/local.properties
+android/app/src/main/assets/public/
+
+# Сложеното платно е 2 MB артефакт; изворите .dc.html се следат
+design/*.html
+
+__pycache__/
+.DS_Store
