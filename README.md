@@ -6,6 +6,16 @@
 
 Архивата се составува сама, како нуспојава од тоа што некому си го направил денот.
 
+### [⬇ Преземи за Android](https://github.com/Ljupcho1982/dobrina/releases/latest/download/dobrina.apk) · [Страница за преземање](https://ljupcho1982.github.io/dobrina/)
+
+Бесплатно, офлајн, без сметка, без сервер. APK-от е debug-потпишан и не оди преку Google Play — Android ќе побара дозвола за инсталација од непознат извор.
+
+<p>
+  <img src="docs/shot-home.png" width="200" alt="Прашање на неделата">
+  <img src="docs/shot-recorder.png" width="200" alt="Снимач">
+  <img src="docs/shot-wall.png" width="200" alt="Ѕид на личност">
+</p>
+
 ---
 
 ## Зошто вака, а не како другите
