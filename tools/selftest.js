@@ -75,5 +75,21 @@ ok(["index.html", "styles.css", "app.js", "data.js", "manifest.json"].every(f =>
 const mf = JSON.parse(fs.readFileSync(path.join(www, "manifest.json"), "utf8"));
 ok(mf.lang === "mk" && mf.display === "standalone", "manifest.json: mk / standalone");
 
+// docs/app/ е втората копија на веб-слојот (онаа што ја служи GitHub Pages).
+// Ако заостане, страницата пушта постара апликација од APK-от — тивко.
+console.log("\ndocs/app/ (Pages)");
+const pagesApp = path.join(__dirname, "..", "docs", "app");
+if (!fs.existsSync(pagesApp)) {
+  ok(false, "docs/app/ не постои — изврши: npm run pages");
+} else {
+  const stale = fs.readdirSync(www).filter((f) => {
+    const a = path.join(www, f), b = path.join(pagesApp, f);
+    if (fs.statSync(a).isDirectory()) return false;
+    return !fs.existsSync(b) || !fs.readFileSync(a).equals(fs.readFileSync(b));
+  });
+  ok(stale.length === 0,
+     "docs/app/ е во чекор со www/" + (stale.length ? " — заостануваат: " + stale.join(", ") + " (npm run pages)" : ""));
+}
+
 console.log(failed ? `\n${failed} проверки паднаа.` : "\nСè помина.");
 process.exit(failed ? 1 : 0);

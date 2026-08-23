@@ -1,0 +1,15 @@
+{
+  "name": "Добрина — кажи го денес",
+  "short_name": "Добрина",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdf6ec",
+  "theme_color": "#fdf6ec",
+  "lang": "mk",
+  "dir": "ltr",
+  "description": "Еднаш неделно едно прашање за еден човек. Триесет секунди глас — и го испраќаш додека има кому.",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

@@ -47,9 +47,14 @@
   .grab { display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center;
     background: var(--card); border: 1px solid var(--line); border-radius: 20px;
     padding: 22px 26px 24px; margin-top: 14px; box-shadow: var(--shadow); }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
   .dl { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: #fff;
     text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 24px; border-radius: 999px; }
-  .dl:hover { background: var(--accent-d); }
+  .dl:hover { background: var(--accent-d); color: #fff; }
+  .dl2 { display: inline-flex; align-items: center; gap: 9px; background: transparent; color: var(--ink);
+    border: 1px solid var(--line); text-decoration: none; font-weight: 700; font-size: 16px;
+    padding: 15px 22px; border-radius: 999px; }
+  .dl2:hover { border-color: var(--accent); color: var(--accent); }
   .grab small { display: block; color: var(--dim); font-size: 14px; margin-top: 12px; line-height: 1.5; }
   .qr { text-align: center; }
   .qr img { display: block; width: 132px; height: 132px; border: 1px solid var(--line); border-radius: 12px; }
@@ -123,8 +128,12 @@
 
   <div class="grab">
     <div>
-      <a class="dl" href="https://github.com/Ljupcho1982/dobrina/releases/latest/download/dobrina.apk">Преземи за Android</a>
-      <small>APK. Android ќе побара дозвола за инсталација од непознат извор — тоа е нормално за апликација што не оди преку Play. Бара пристап до микрофонот, зашто снимањето глас е целата поента.</small>
+      <div class="btns">
+        <a class="dl" href="app/">Отвори ја веднаш</a>
+        <a class="dl2" href="https://github.com/Ljupcho1982/dobrina/releases/latest/download/dobrina.apk">Преземи за Android</a>
+      </div>
+      <small><b>Отвори ја веднаш</b> ја пушта апликацијата во прелистувач — на телефон, на компјутер, на iPhone. Ништо не се инсталира, а може да се додаде на почетен екран.<br>
+      <b>APK-то</b> е за Android и работи и без интернет откако ќе се инсталира; Android ќе побара дозвола за непознат извор, што е нормално за апликација што не оди преку Play. Во двата случаја се бара микрофонот, зашто снимањето глас е целата поента.</small>
     </div>
     <div class="qr">
       <img src="qr.png" alt="QR код до оваа страница" width="132" height="132">
@@ -196,6 +205,7 @@
       <li><b>Апликацијата е тестирана во прелистувач, не на вистински телефон.</b> Целата низа — од првиот екран до извозот — е поминета и проверена, но сè уште никој не ја носел во џеб една недела.</li>
       <li><b>Само на македонски.</b></li>
       <li><b>APK-от е debug-потпишан</b> и не оди преку Google Play.</li>
+      <li><b>Во прелистувач, снимките живеат во тој прелистувач.</b> Ако ја исчистиш историјата или отвориш друг прелистувач, ги нема. За нешто што сакаш да го чуваш — инсталирај го APK-то, или редовно притискај „Зачувај ја книгата“.</li>
     </ul>
   </section>
 
