@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #c75b2a; }
+    a:hover { color: #a8481f; }
+    @keyframes dobrina-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(199, 91, 42, 0.28); }
+      50%      { box-shadow: 0 0 0 18px rgba(199, 91, 42, 0); }
+    }
+    .dobrina-live { animation: dobrina-pulse 1.6s ease-in-out infinite; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: rgba(58, 36, 20, 0.4); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #3a2c22; line-height: 1.5; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
+
+  <div style="background: #fdf6ec; border-radius: 24px 24px 0 0; padding: 16px 18px 22px; max-height: 812px; overflow: hidden;">
+
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a7460" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6 6 18"></path>
+      </svg>
+      <span style="font-weight: 700; font-size: 15px;">за Дедо Ристо</span>
+    </div>
+
+    <p style="font-family: Literata, Georgia, serif; font-size: 18px; line-height: 1.4; margin: 0 0 10px;">{{prompt}}</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;">
+      <sc-for list="{{kinds}}" as="k" hint-placeholder-count="6">
+        <button onClick="{{k.pick}}" style="{{k.style}}">{{k.emoji}} {{k.name}}</button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 18px; padding: 6px 0 18px;">
+      <button onClick="{{toggle}}" class="{{pulseClass}}" style="{{recStyle}}">
+        <span style="{{dotStyle}}"></span>
+      </button>
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; font-family: Literata, Georgia, serif; letter-spacing: -0.02em;">{{time}}</span>
+        <span style="font-size: 12.5px; color: #8a7460;">{{hint}}</span>
+      </div>
+    </div>
+
+    <div style="height: 42px; display: flex; align-items: center; gap: 3px; margin-bottom: 16px;">
+      <sc-for list="{{bars}}" as="b" hint-placeholder-count="40">
+        <div style="{{b.style}}"></div>
+      </sc-for>
+    </div>
+
+    <div style="border: 1px solid #e8d9c5; background: #fffaf3; border-radius: 12px; padding: 11px 13px; color: #8a7460; font-size: 14.5px; margin-bottom: 16px;">Или напиши го со збор…</div>
+
+    <div style="display: flex; gap: 9px; margin-bottom: 18px;">
+      <button style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #e8d9c5; background: transparent; color: #3a2c22; border-radius: 999px; padding: 11px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.9L9 4h6l1.6 2h1.9A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5Z"></path>
+          <circle cx="12" cy="13" r="3.6"></circle>
+        </svg>
+        Слика
+      </button>
+      <button style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #e8d9c5; background: transparent; color: #3a2c22; border-radius: 999px; padding: 11px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 20c1.5-5 5-8 10-8"></path>
+          <path d="M14 8V4l6 6-6 6v-4"></path>
+        </svg>
+        Друго прашање
+      </button>
+    </div>
+
+    <div style="font-size: 12.5px; color: #8a7460; font-weight: 600; margin-bottom: 7px;">Кога беше тоа?</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px;">
+      <sc-for list="{{seasons}}" as="s" hint-placeholder-count="5">
+        <button onClick="{{s.pick}}" style="{{s.style}}">{{s.name}}</button>
+      </sc-for>
+    </div>
+
+    <button style="width: 100%; background: #c75b2a; border: 1px solid #c75b2a; color: #fff; border-radius: 999px; padding: 14px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer;">Зачувај</button>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"recording":{"editor":"boolean","default":false,"section":"Состојба"}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { kind: 'smea', season: 'кога бев мал', rec: null, secs: 26 };
+  }
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+  chip(on) {
+    return 'border: 1px solid ' + (on ? '#c75b2a' : '#e8d9c5') + '; background: ' + (on ? '#c75b2a' : '#fffaf3')
+      + '; color: ' + (on ? '#ffffff' : '#3a2c22')
+      + '; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;';
+  }
+  renderVals() {
+    const live = this.state.rec === null ? (this.props.recording ?? false) : this.state.rec;
+
+    if (live && !this.timer) {
+      this.timer = setInterval(() => this.setState({ secs: this.state.secs + 1 }), 1000);
+    } else if (!live && this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+
+    const kinds = [
+      { id: 'dobro', emoji: '💛', name: 'Добрина', q: 'Која е една добра работа што ја направи Дедо Ристо за некој друг, а можеби ни не знае дека ја паметиш?' },
+      { id: 'nauchiv', emoji: '🪚', name: 'Научив', q: 'Што те научи Дедо Ристо со раце — нешто што сега го знаеш само поради него?' },
+      { id: 'smea', emoji: '😄', name: 'Смеа', q: 'Од што најмногу се смее Дедо Ристо? Сними го како се смее.' },
+      { id: 'recept', emoji: '🍲', name: 'Рецепт', q: 'Кое јадење знае само Дедо Ристо да го направи како што треба?' },
+      { id: 'moment', emoji: '🌾', name: 'Момент', q: 'Каде најмногу сакаше да седи Дедо Ристо?' },
+      { id: 'fala', emoji: '🙏', name: 'Фала', q: 'Кажи му на Дедо Ристо едно фала што одамна го должиш.' }
+    ];
+    const active = kinds.find((k) => k.id === this.state.kind) || kinds[0];
+
+    const seasons = ['лето на село', 'слава', 'кога бев мал', 'неодамна', 'не се сеќавам кога'];
+    const s = this.state.secs;
+    const heights = [9, 17, 28, 14, 34, 22, 11, 30, 19, 38, 24, 13, 26, 33, 16, 21, 12, 29, 35, 18,
+                     23, 10, 31, 15, 27, 36, 20, 12, 25, 32, 14, 22, 17, 30, 11, 26, 19, 34, 13, 24];
+
+    return {
+      prompt: active.q,
+      time: Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'),
+      hint: live ? 'снимам… допри за да запреш' : 'допри за да снимаш глас',
+      pulseClass: live ? 'dobrina-live' : '',
+      toggle: () => this.setState({ rec: !live }),
+      recStyle: 'width: 76px; height: 76px; border-radius: 50%; flex: none; cursor: pointer; padding: 0;'
+        + ' border: 3px solid ' + (live ? '#a8481f' : '#c75b2a') + '; background: #fffaf3;'
+        + ' display: flex; align-items: center; justify-content: center;',
+      dotStyle: live
+        ? 'width: 24px; height: 24px; border-radius: 6px; background: #a8481f; display: block;'
+        : 'width: 31px; height: 31px; border-radius: 50%; background: #c75b2a; display: block;',
+      bars: heights.map((h, i) => ({
+        style: 'flex: 1; border-radius: 2px; height: ' + (live ? h : Math.round(h * 0.35)) + 'px;'
+          + ' background: ' + (live && i < 26 ? '#c75b2a' : '#e8d9c5') + ';'
+      })),
+      kinds: kinds.map((k) => ({
+        emoji: k.emoji, name: k.name,
+        style: this.chip(k.id === this.state.kind),
+        pick: () => this.setState({ kind: k.id })
+      })),
+      seasons: seasons.map((name) => ({
+        name,
+        style: this.chip(name === this.state.season),
+        pick: () => this.setState({ season: name })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

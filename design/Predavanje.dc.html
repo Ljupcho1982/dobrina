@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #c75b2a; }
+    a:hover { color: #a8481f; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #fdf6ec; color: #3a2c22; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.5; display: flex; flex-direction: column; justify-content: center; padding: 0 30px; position: relative; overflow: hidden;">
+
+  <div style="position: absolute; left: 50%; top: 120px; width: 460px; height: 460px; margin-left: -230px; border-radius: 50%; background: radial-gradient(circle, rgba(217, 164, 65, 0.24), rgba(217, 164, 65, 0) 66%); pointer-events: none;"></div>
+
+  <div style="position: relative; display: flex; flex-direction: column;">
+
+    <div style="width: 118px; height: 152px; margin-bottom: 34px; position: relative;">
+      <div style="position: absolute; left: 10px; top: 8px; width: 104px; height: 138px; background: #f0e2cd; border: 1px solid #e8d9c5; border-radius: 4px 9px 9px 4px; transform: rotate(4deg);"></div>
+      <div style="position: absolute; left: 4px; top: 4px; width: 104px; height: 138px; background: #fffaf3; border: 1px solid #e8d9c5; border-radius: 4px 9px 9px 4px; transform: rotate(-2deg);"></div>
+      <div style="position: absolute; left: 0; top: 0; width: 104px; height: 138px; background: #c75b2a; border-radius: 4px 9px 9px 4px; box-shadow: 0 10px 26px rgba(199, 91, 42, 0.28); padding: 18px 14px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="width: 34px; height: 2px; background: #e6b95c; border-radius: 1px;"></div>
+        <div>
+          <div style="font-family: Literata, Georgia, serif; font-size: 15px; font-weight: 700; color: #fdf6ec; line-height: 1.15;">Дедо<br>Ристо</div>
+          <div style="font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253, 246, 236, 0.72); margin-top: 5px; font-weight: 700;">книга на доброто</div>
+        </div>
+      </div>
+      <div style="position: absolute; left: 0; top: 0; width: 104px; height: 138px; border-left: 5px solid #a8481f; border-radius: 4px 0 0 4px;"></div>
+    </div>
+
+    <h1 style="font-family: Literata, Georgia, serif; font-size: 44px; font-weight: 700; letter-spacing: -0.032em; line-height: 1.02; margin: 0 0 18px;">Книгата<br>постои.</h1>
+
+    <p style="font-family: Literata, Georgia, serif; font-size: 19px; line-height: 1.44; margin: 0 0 14px; max-width: 300px; text-wrap: pretty;">Дванаесет записи и деветнаесет минути негов глас — во една датотека.</p>
+
+    <p style="font-size: 15px; color: #8a7460; margin: 0 0 34px; max-width: 300px; text-wrap: pretty;">Стави ја на две места. Едно од нив нека не биде телефон.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button style="display: flex; align-items: center; justify-content: center; gap: 9px; background: #c75b2a; border: 1px solid #c75b2a; color: #fff; border-radius: 999px; padding: 16px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 8px 24px rgba(199, 91, 42, 0.22);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path>
+          <path d="M12 15V3"></path><path d="m8 7 4-4 4 4"></path>
+        </svg>
+        Дај ја на некого
+      </button>
+      <button style="background: transparent; border: 1px solid #e8d9c5; color: #3a2c22; border-radius: 999px; padding: 15px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;">Готово</button>
+    </div>
+
+    <p style="font-size: 12.5px; color: #8a7460; margin: 26px 0 0; line-height: 1.55; max-width: 300px; text-wrap: pretty;">Се отвора во кој било прелистувач. Без интернет, без оваа апликација, и за триесет години.</p>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

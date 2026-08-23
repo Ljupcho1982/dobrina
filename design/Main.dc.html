@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #c75b2a; }
+    a:hover { color: #a8481f; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #fdf6ec; color: #3a2c22; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.5; display: flex; flex-direction: column; overflow: hidden;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #e8d9c5; flex: none;">
+    <div style="display: flex; align-items: center; gap: 9px;">
+      <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M10 14h44a4 4 0 0 1 4 4v22a4 4 0 0 1-4 4H28L16 55v-11h-6a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Z" fill="#c75b2a"></path>
+        <path d="M32 36s-9-5.4-9-11.2A5 5 0 0 1 32 21a5 5 0 0 1 9 3.8C41 30.6 32 36 32 36Z" fill="#d9a441"></path>
+      </svg>
+      <span style="font-weight: 700; font-size: 17px; letter-spacing: -0.01em;">Добрина</span>
+    </div>
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#8a7460" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.2"></circle>
+      <path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"></path>
+    </svg>
+  </div>
+
+  <div style="flex: 1; overflow: hidden; padding: 14px 18px 0;">
+
+    <div style="color: #8a7460; font-size: 15px; margin-bottom: 14px;">Добро утро. Денес е <span style="color: #c75b2a; font-weight: 600;">петок</span> — денот за едно добро.</div>
+
+    <div style="position: relative; background: #fffaf3; border: 1px solid #e8d9c5; border-left: 4px solid #c75b2a; border-radius: 16px; padding: 16px 17px 17px; box-shadow: 0 2px 10px rgba(90, 60, 30, 0.07); overflow: hidden;">
+      <div style="position: absolute; top: -70px; right: -60px; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, rgba(217, 164, 65, 0.22), rgba(217, 164, 65, 0) 68%); pointer-events: none;"></div>
+      <div style="position: relative; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #c75b2a; font-weight: 700; margin-bottom: 9px;">Прашање на неделата</div>
+      <div style="position: relative; display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <span style="font-size: 19px;">{{weekly.emoji}}</span>
+        <span style="font-weight: 700; font-size: 16px;">Дедо Ристо</span>
+        <button onClick="{{cycle}}" style="margin-left: auto; display: flex; align-items: center; gap: 5px; border: 1px solid #e8d9c5; background: transparent; color: #8a7460; border-radius: 999px; padding: 4px 11px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 11A8 8 0 0 0 6.3 5.7L2 10"></path>
+            <path d="M2 4v6h6"></path>
+            <path d="M4 13a8 8 0 0 0 13.7 5.3L22 14"></path>
+            <path d="M22 20v-6h-6"></path>
+          </svg>
+          друг
+        </button>
+      </div>
+      <p style="position: relative; font-family: Literata, Georgia, serif; font-size: 17px; line-height: 1.42; margin: 0 0 15px;">{{weekly.q}}</p>
+      <div style="position: relative; display: flex; gap: 9px;">
+        <button style="flex: 1.35; display: flex; align-items: center; justify-content: center; gap: 7px; background: #c75b2a; border: 1px solid #c75b2a; color: #fff; border-radius: 999px; padding: 12px 14px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+            <path d="M5 11a7 7 0 0 0 14 0"></path>
+            <path d="M12 18v4"></path>
+          </svg>
+          Кажи го
+        </button>
+        <button onClick="{{cycle}}" style="flex: 1; background: transparent; border: 1px solid #e8d9c5; color: #3a2c22; border-radius: 999px; padding: 12px 12px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Друго прашање</button>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 9px; margin: 13px 0;">
+      <sc-for list="{{stats}}" as="s" hint-placeholder-count="3">
+        <div style="flex: 1; background: #fffaf3; border: 1px solid #e8d9c5; border-radius: 13px; padding: 10px 6px; text-align: center;">
+          <div style="font-size: 25px; font-weight: 700; color: #c75b2a; line-height: 1.1; font-family: Literata, Georgia, serif;">{{s.n}}</div>
+          <div style="font-size: 11.5px; color: #8a7460;">{{s.label}}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{showSurprise}}" hint-placeholder-val="{{true}}">
+      <div style="background: linear-gradient(170deg, #fffaf3, #fdf6ec); border: 1px solid #e8d9c5; border-left: 4px solid #d9a441; border-radius: 16px; padding: 14px 16px; box-shadow: 0 2px 10px rgba(90, 60, 30, 0.07); margin-bottom: 15px;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #d9a441; font-weight: 700; margin-bottom: 7px;">Се сеќаваш?</div>
+        <div style="display: flex; align-items: center; gap: 7px; font-size: 12px; color: #8a7460; margin-bottom: 5px;">
+          <span style="font-size: 15px;">🌾</span>
+          <span style="font-weight: 700; color: #3a2c22;">Баба Цвета</span>
+          <span>· Момент · лето на село</span>
+        </div>
+        <p style="margin: 0; font-family: Literata, Georgia, serif; font-size: 14.5px; line-height: 1.45;">Секое утро в шест ја отвораше портата за мачките. Сите шест ја чекаа.</p>
+      </div>
+    </sc-if>
+
+    <div style="font-size: 13px; color: #8a7460; font-weight: 600; margin-bottom: 8px;">Последни</div>
+
+    <div style="background: #fffaf3; border: 1px solid #e8d9c5; border-radius: 16px; padding: 13px 15px; box-shadow: 0 2px 10px rgba(90, 60, 30, 0.07);">
+      <div style="display: flex; align-items: center; gap: 7px; font-size: 12px; color: #8a7460; margin-bottom: 6px;">
+        <span style="font-size: 15px;">💛</span>
+        <span style="font-weight: 700; color: #3a2c22;">Тетка Вера</span>
+        <span>· Добрина · вчера</span>
+        <span style="margin-left: auto; color: #6a8f5f; font-weight: 600; display: flex; align-items: center; gap: 3px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+          испратено
+        </span>
+      </div>
+      <p style="margin: 0; font-size: 14.5px; line-height: 1.45;">Ме однесе на испит со автомобил што едвај палеше. Не рече ни збор дека доцни на работа.</p>
+    </div>
+
+  </div>
+
+  <div style="display: flex; border-top: 1px solid #e8d9c5; background: #fffaf3; flex: none; padding: 7px 0 11px;">
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; color: #c75b2a;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 10.5 12 3l9 7.5"></path>
+        <path d="M5.5 9.5V20h13V9.5"></path>
+        <path d="M10 20v-5.5h4V20"></path>
+      </svg>
+      <span style="font-size: 11px; font-weight: 700;">Дома</span>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; color: #8a7460;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3.3"></circle>
+        <path d="M3 20c0-3.2 2.7-5.2 6-5.2s6 2 6 5.2"></path>
+        <path d="M16.5 5.6a3.3 3.3 0 0 1 0 6.4"></path>
+        <path d="M18 14.4c2 .8 3 2.5 3 4.6"></path>
+      </svg>
+      <span style="font-size: 11px; font-weight: 600;">Луѓе</span>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; color: #8a7460;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 20s-7.5-4.4-7.5-9.4A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20Z"></path>
+      </svg>
+      <span style="font-size: 11px; font-weight: 600;">Сè</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"showSurprise":{"editor":"boolean","default":true,"section":"Содржина"}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { qi: 0 };
+  }
+  renderVals() {
+    const questions = [
+      { emoji: '🍲', q: 'Сними го Дедо Ристо додека готви. Само раце и глас — не мора да гледа во камера.' },
+      { emoji: '😄', q: 'Од што најмногу се смее Дедо Ристо? Сними го како се смее — тоа е снимката што ќе ја сакаш најмногу.' },
+      { emoji: '🪚', q: 'Што те научи Дедо Ристо со раце — нешто што сега го знаеш само поради него?' },
+      { emoji: '🙏', q: 'Кажи му на Дедо Ристо едно фала што одамна го должиш.' }
+    ];
+    return {
+      weekly: questions[this.state.qi % questions.length],
+      cycle: () => this.setState({ qi: this.state.qi + 1 }),
+      showSurprise: this.props.showSurprise ?? true,
+      stats: [
+        { n: '47', label: 'добрини' },
+        { n: '6', label: 'луѓе' },
+        { n: '41', label: 'испратени' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

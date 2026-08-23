@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #e0713d; }
+    a:hover { color: #c75b2a; }
+    @keyframes dobrina-breathe {
+      0%, 100% { transform: scaleY(0.62); }
+      50%      { transform: scaleY(1); }
+    }
+    .dobrina-bar { transform-origin: center; }
+    .dobrina-on .dobrina-bar { animation: dobrina-breathe 1.5s ease-in-out infinite; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #1b1512; color: #f2e6d8; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.5; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+
+  <div style="position: absolute; left: 50%; top: 300px; width: 620px; height: 620px; margin-left: -310px; border-radius: 50%; background: radial-gradient(circle, rgba(230, 185, 92, 0.14), rgba(230, 185, 92, 0) 62%); pointer-events: none;"></div>
+
+  <div style="position: relative; flex: none; padding: 18px 24px 0;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a89684" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>
+  </div>
+
+  <div style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 26px;">
+
+    <div style="display: flex; align-items: center; gap: 13px; margin-bottom: 30px;">
+      <div style="width: 54px; height: 54px; border-radius: 50%; flex: none; background: #e6b95c; color: #241c17; display: flex; align-items: center; justify-content: center; font-family: Literata, Georgia, serif; font-size: 20px; font-weight: 700;">ДР</div>
+      <div>
+        <div style="font-family: Literata, Georgia, serif; font-size: 27px; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em;">Дедо Ристо</div>
+        <div style="font-size: 13px; color: #a89684;">Рецепт · зимница · едно попладне во ноември</div>
+      </div>
+    </div>
+
+    <div class="{{onClass}}" style="display: flex; align-items: center; gap: 3px; height: 128px; margin-bottom: 18px;">
+      <sc-for list="{{bars}}" as="b" hint-placeholder-count="46">
+        <div class="dobrina-bar" style="{{b.style}}"></div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #a89684; font-variant-numeric: tabular-nums; margin-bottom: 30px;">
+      <span>{{at}}</span>
+      <span>2:03</span>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 40px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89684" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 6 4 12l7 6V6Z"></path><path d="M20 6l-7 6 7 6V6Z"></path>
+      </svg>
+      <button onClick="{{toggle}}" style="width: 84px; height: 84px; border-radius: 50%; border: none; background: #e0713d; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; box-shadow: 0 10px 34px rgba(224, 113, 61, 0.34);">
+        <sc-if value="{{playing}}" hint-placeholder-val="{{true}}">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="#1b1512" aria-hidden="true">
+            <rect x="6" y="4" width="4.4" height="16" rx="1.4"></rect>
+            <rect x="13.6" y="4" width="4.4" height="16" rx="1.4"></rect>
+          </svg>
+        </sc-if>
+        <sc-if value="{{paused}}" hint-placeholder-val="{{false}}">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#1b1512" aria-hidden="true">
+            <path d="M8 4.5v15l12-7.5Z"></path>
+          </svg>
+        </sc-if>
+      </button>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a89684" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M13 6l7 6-7 6V6Z"></path><path d="M4 6l7 6-7 6V6Z"></path>
+      </svg>
+    </div>
+
+    <p style="font-family: Literata, Georgia, serif; font-size: 21px; line-height: 1.44; margin: 0 0 14px; text-wrap: pretty;">„Ајварот се пече бавно. Кој брза, јаде чад.“</p>
+
+    <p style="font-size: 13.5px; color: #a89684; margin: 0;">Ова го кажа сам, во својата кујна.</p>
+
+  </div>
+
+  <div style="position: relative; flex: none; padding: 0 26px 34px; display: flex; gap: 9px;">
+    <button style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #3a2d24; background: transparent; color: #f2e6d8; border-radius: 999px; padding: 13px; font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path>
+        <path d="M12 15V3"></path><path d="m8 7 4-4 4 4"></path>
+      </svg>
+      Сподели го
+    </button>
+    <button style="flex: 1; border: 1px solid #3a2d24; background: transparent; color: #f2e6d8; border-radius: 999px; padding: 13px; font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer;">Уште еднаш</button>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"playing":{"editor":"boolean","default":true,"section":"Состојба"}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { flip: null };
+  }
+  renderVals() {
+    const playing = this.state.flip === null ? (this.props.playing ?? true) : this.state.flip;
+
+    const seeds = [12, 26, 41, 19, 58, 34, 71, 45, 88, 52, 30, 66, 97, 43, 24, 79, 55, 108, 38, 61,
+                   92, 47, 21, 74, 100, 36, 58, 85, 29, 63, 44, 96, 51, 17, 70, 39, 82, 27, 59, 46,
+                   90, 33, 68, 22, 54, 15];
+    const played = 28;
+
+    return {
+      playing,
+      paused: !playing,
+      at: playing ? '1:14' : '0:00',
+      onClass: playing ? 'dobrina-on' : '',
+      toggle: () => this.setState({ flip: !playing }),
+      bars: seeds.map((h, i) => ({
+        style: 'flex: 1; border-radius: 3px; height: ' + h + 'px;'
+          + ' background: ' + (i < played ? '#e0713d' : '#3a2d24') + ';'
+          + ' animation-delay: ' + (i * 0.045).toFixed(3) + 's;'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

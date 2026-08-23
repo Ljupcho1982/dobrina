@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #c75b2a; }
+    a:hover { color: #a8481f; }
+    @keyframes dobrina-bloom {
+      from { transform: scale(0.86); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes dobrina-turn {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .dobrina-bloom { animation: dobrina-bloom 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .dobrina-turn { animation: dobrina-turn 90s linear infinite; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: #fdf6ec; color: #3a2c22; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.5; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 30px; text-align: center; position: relative; overflow: hidden;">
+
+  <div style="position: absolute; top: 50%; left: 50%; width: 620px; height: 620px; margin: -400px 0 0 -310px; pointer-events: none;">
+    <div class="dobrina-turn" style="width: 100%; height: 100%;">
+      <svg viewBox="0 0 620 620" width="620" height="620" aria-hidden="true">
+        <g stroke="#d9a441" stroke-width="1.2" stroke-linecap="round" opacity="0.34">
+          <path d="M310 96V26"></path><path d="M310 594v-70"></path>
+          <path d="M96 310H26"></path><path d="M594 310h-70"></path>
+          <path d="m158.7 158.7-49.5-49.5"></path><path d="m510.8 510.8-49.5-49.5"></path>
+          <path d="m158.7 461.3-49.5 49.5"></path><path d="m510.8 109.2-49.5 49.5"></path>
+          <path d="m392 88 24-66"></path><path d="m204 532-24 66"></path>
+          <path d="m228 88-24-66"></path><path d="m416 532 24 66"></path>
+          <path d="m88 228-66-24"></path><path d="m532 392 66 24"></path>
+          <path d="m88 392-66 24"></path><path d="m532 228 66-24"></path>
+        </g>
+      </svg>
+    </div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(217, 164, 65, 0.3), rgba(217, 164, 65, 0.08) 34%, rgba(253, 246, 236, 0) 60%);"></div>
+  </div>
+
+  <div class="dobrina-bloom" style="position: relative; display: flex; flex-direction: column; align-items: center;">
+
+    <div style="width: 96px; height: 96px; border-radius: 50%; background: #c75b2a; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; box-shadow: 0 10px 30px rgba(199, 91, 42, 0.28);">
+      <sc-if value="{{sent}}" hint-placeholder-val="{{true}}">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fdf6ec" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+      </sc-if>
+      <sc-if value="{{pending}}" hint-placeholder-val="{{false}}">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="#fdf6ec" aria-hidden="true">
+          <path d="M12 20.5s-8-5-8-10.4A4.6 4.6 0 0 1 12 7.4a4.6 4.6 0 0 1 8 2.7c0 5.4-8 10.4-8 10.4Z"></path>
+        </svg>
+      </sc-if>
+    </div>
+
+    <h1 style="font-family: Literata, Georgia, serif; font-size: 44px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 14px; font-weight: 700;">{{title}}</h1>
+
+    <p style="font-family: Literata, Georgia, serif; font-size: 18px; line-height: 1.45; color: #3a2c22; margin: 0 0 10px; max-width: 290px;">{{lead}}</p>
+
+    <p style="font-size: 14px; color: #8a7460; margin: 0 0 34px;">{{note}}</p>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; width: 250px;">
+      <button onClick="{{toggle}}" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #c75b2a; border: 1px solid #c75b2a; color: #fff; border-radius: 999px; padding: 14px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer;">
+        <sc-if value="{{pending}}" hint-placeholder-val="{{true}}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21.5 3.5 10.5 14.5"></path>
+            <path d="M21.5 3.5 14.8 21.5l-4.3-7-7-4.3Z"></path>
+          </svg>
+        </sc-if>
+        {{cta}}
+      </button>
+      <button onClick="{{toggle}}" style="background: transparent; border: 1px solid #e8d9c5; color: #3a2c22; border-radius: 999px; padding: 13px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;">{{secondary}}</button>
+    </div>
+
+    <p style="font-size: 12.5px; color: #8a7460; margin: 22px 0 0; max-width: 270px; line-height: 1.5;">{{fine}}</p>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"sent":{"editor":"boolean","default":true,"section":"Состојба"}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { flip: null };
+  }
+  renderVals() {
+    const sent = this.state.flip === null ? (this.props.sent ?? true) : this.state.flip;
+    const copy = sent
+      ? {
+          title: 'Го чу.',
+          lead: 'Дедо Ристо го слушна тоа денес. Не еден ден — денес.',
+          note: 'Тоа е дванаесеттата добрина за него.',
+          cta: 'Уште едно',
+          secondary: 'Готово',
+          fine: 'Сè останува и кај тебе. Некој ден ова ќе биде книга — и секој ред во неа веќе бил кажан в лице.'
+        }
+      : {
+          title: 'Зачувано.',
+          lead: 'Нека го чуе Дедо Ристо — денес, не еден ден.',
+          note: 'Триесет и две секунди од твојот глас.',
+          cta: 'Испрати сега',
+          secondary: 'Подоцна',
+          fine: 'Се отвора Viber, WhatsApp или што и да користиш. Тој од другата страна не мора ништо да инсталира.'
+        };
+    return Object.assign({}, copy, {
+      sent,
+      pending: !sent,
+      toggle: () => this.setState({ flip: !sent })
+    });
+  }
+}
+</script>
+</body>
+</html>

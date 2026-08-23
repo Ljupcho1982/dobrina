@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&amp;display=swap">
+  <style>
+    body { margin: 0; }
+    * { box-sizing: border-box; }
+    a { color: #c75b2a; }
+    a:hover { color: #a8481f; }
+  </style>
+</helmet>
+
+<div style="width: 560px; height: 794px; background: #fffaf3; color: #3a2c22; font-family: Literata, Georgia, serif; line-height: 1.6; padding: 62px 58px 48px; display: flex; flex-direction: column; overflow: hidden;">
+
+  <div style="flex: none; border-bottom: 3px solid #c75b2a; padding-bottom: 22px; margin-bottom: 26px;">
+    <div style="font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #c75b2a; font-weight: 700; margin-bottom: 10px;">Книга на доброто</div>
+    <h1 style="font-size: 42px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 10px; font-weight: 700;">Дедо Ристо</h1>
+    <p style="margin: 0; font-size: 16px; color: #8a7460; font-style: italic;">Сè што е тука беше кажано наглас, нему, додека слушаше.</p>
+  </div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 22px; overflow: hidden;">
+    <sc-for list="{{entries}}" as="e" hint-placeholder-count="3">
+      <div style="border-top: 1px solid #e8d9c5; padding-top: 18px; flex: none;">
+        <div style="font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: #c75b2a; font-weight: 700; margin-bottom: 6px;">{{e.kind}} · {{e.when}}</div>
+        <p style="margin: 0 0 9px; font-size: 15px; font-style: italic; color: #8a7460; line-height: 1.5;">{{e.q}}</p>
+        <p style="margin: 0; font-size: 17px; line-height: 1.62;">{{e.text}}</p>
+        <div style="font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12.5px; color: #8a7460; margin-top: 9px; display: flex; align-items: center; gap: 6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c75b2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+            <path d="M5 11a7 7 0 0 0 14 0"></path>
+            <path d="M12 18v4"></path>
+          </svg>
+          со неговиот глас · {{e.dur}}
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="flex: none; border-top: 1px solid #e8d9c5; padding-top: 18px; margin-top: 22px; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; color: #8a7460; line-height: 1.55;">
+    Оваа книга се составуваше сама, една недела по една. Сликите и гласовите се внатре во датотеката — не ѝ треба интернет, ниту апликација.
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"entries":{"editor":"range","default":3,"min":2,"max":4,"step":1,"section":"Содржина"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const all = [
+      {
+        kind: 'Научив', when: 'лето на село', dur: '1:12',
+        q: 'Што те научи Дедо Ристо со раце — нешто што сега го знаеш само поради него?',
+        text: 'Ме научи да калемам слива. Стоеше зад мене и не ми ја земаше ножичката од рака, иако гледаше дека грешам. Уште држи, триесет години подоцна.'
+      },
+      {
+        kind: 'Рецепт', when: 'зимница', dur: '2:03',
+        q: 'Која зимница ја прави Дедо Ристо секоја година?',
+        text: 'Ајварот се пече бавно, вели. Кој брза, јаде чад. Не ми кажа колку оди од што — рече дека раката знае, ако ја пуштиш.'
+      },
+      {
+        kind: 'Смеа', when: 'слава', dur: '0:41',
+        q: 'Која најсмешна работа ти ја направи Дедо Ристо?',
+        text: 'Сам ја исклучи струјата, па половина час бараше зошто не работи фрижидерот. Кога сфати, се смееше посилно од сите нас.'
+      },
+      {
+        kind: 'Добрина', when: 'кога бев мал', dur: '0:28',
+        q: 'Која жртва ја направи Дедо Ристо, а никогаш не ја спомна?',
+        text: 'Ми ја плати првата година факултет, а никому не рече дека ја продал нивата над куќата. Дознав по единаесет години, од друг човек.'
+      }
+    ];
+    const n = Math.max(2, Math.min(4, this.props.entries ?? 3));
+    return { entries: all.slice(0, n) };
+  }
+}
+</script>
+</body>
+</html>
