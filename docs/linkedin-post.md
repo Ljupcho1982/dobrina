@@ -48,6 +48,11 @@ StoryWorth и Remento го тераат старецот да пишува до�
 околу месец. Заклучокот не е дека не вреди. Заклучокот е дека благодарноста не е
 настан, туку ритам. Затоа прашањето доаѓа неделно, а не еднаш.
 
+Целата таа приказна ја раскажав во епизода од подкастот — јапонското сеизенсо,
+студијата на Селигман, и реминисценцијата кај постари луѓе. Десет минути:
+
+🎧 https://ljupcho1982.github.io/podcast/#02-zoshto-chekame
+
 Две одлуки за кои нема да попуштам:
 
 ✕ **Нема и нема да има синтетички глас** на човек што го нема. Постојат апликации
@@ -69,9 +74,10 @@ StoryWorth и Remento го тераат старецот да пишува до�
 
 👉 Отвори ја веднаш во прелистувач: https://ljupcho1982.github.io/dobrina/app/
 👉 Страница и APK: https://ljupcho1982.github.io/dobrina/
+🎧 Епизодата: https://ljupcho1982.github.io/podcast/#02-zoshto-chekame
 👉 Код: https://github.com/Ljupcho1982/dobrina
 
-#opensource #Android #PWA #Macedonia #ageing #familyhistory
+#opensource #Android #PWA #Macedonia #ageing #familyhistory #podcast
 
 ---
 
@@ -91,9 +97,13 @@ StoryWorth и Remento го тераат старецот да пишува до�
 
 Бесплатно, отворен код, офлајн, без сметка. Нема и нема да има синтетички глас.
 
-👉 https://ljupcho1982.github.io/dobrina/
+Зошто воопшто чекаме да кажеме нешто убаво — за тоа има и епизода од подкастот,
+десет минути.
 
-#opensource #Android #PWA #Macedonia
+👉 Апликацијата: https://ljupcho1982.github.io/dobrina/
+🎧 Епизодата: https://ljupcho1982.github.io/podcast/#02-zoshto-chekame
+
+#opensource #Android #PWA #Macedonia #podcast
 
 ---
 
@@ -127,8 +137,13 @@ voices inside — that opens in any browser, offline, in thirty years.
 
 Free, open source, offline, no account, no server.
 
+There is also a podcast episode on the whole argument — the Japanese seizensō,
+the Seligman study, and reminiscence work with older adults. Ten minutes, in
+Macedonian.
+
 👉 Open it in a browser: https://ljupcho1982.github.io/dobrina/app/
 👉 Page and APK: https://ljupcho1982.github.io/dobrina/
+🎧 The episode: https://ljupcho1982.github.io/podcast/#02-zoshto-chekame
 👉 Code: https://github.com/Ljupcho1982/dobrina
 
-#opensource #Android #PWA #ageing #familyhistory
+#opensource #Android #PWA #ageing #familyhistory #podcast
