@@ -1,4 +1,4 @@
-const CACHE = "dobrina-v1.0.0";
+const CACHE = "dobrina-v1.0.1";
 const ASSETS = ["./", "index.html", "styles.css", "app.js", "data.js", "manifest.json", "icon.svg", "icon-maskable.svg"];
 
 self.addEventListener("install", (e) => {
