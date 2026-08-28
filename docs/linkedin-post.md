@@ -107,7 +107,34 @@ StoryWorth и Remento го тераат старецот да пишува до�
 
 ---
 
-## English — за меѓународна публика
+## English — short version (recommended)
+
+Do you have a recording of your grandfather's voice?
+
+Most people have none. Not one second. And of everything a person leaves behind,
+the voice is the only thing that **cannot be made later**.
+
+So I built **Dobrina** — Macedonian for *kindness*. Once a week it asks one
+specific question about one person: *what did he teach you with his hands?* You
+answer in thirty seconds of voice. Then it helps you **send it to him today**. He
+installs nothing.
+
+The category has this backwards. StoryWorth and Remento make the elder do
+homework so the family gets a book. This one puts the work on the grandchild and
+the reward on the grandparent. The archive builds itself — and by the time it
+becomes a memorial, every line in it was already said to the person's face.
+
+It will never generate a synthetic voice of someone who is gone.
+
+Free, open source, offline, no account. Interface is in Macedonian.
+
+👉 https://ljupcho1982.github.io/dobrina/app/
+
+#opensource #Android #PWA #ageing #familyhistory
+
+---
+
+## English — long version
 
 Do you have a recording of your grandfather's voice?
 
